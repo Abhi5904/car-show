@@ -37,8 +37,8 @@ const Home = async ({ searchParams }: HomeProps) => {
           ) : (
             <section>
               <div className="md:grid md:grid-cols-3 gap-3">
-                {allCars?.map((car) => (
-                  <CarCard car={car} />
+                {allCars?.map((car,index) => (
+                  <CarCard key={index} car={car} />
                 ))}
               </div>
               <ShowMore pageNumber={(searchParams.limit || 10) / 10} isNext={(searchParams.limit || 10) < allCars.length} />
